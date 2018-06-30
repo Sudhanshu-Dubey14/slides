@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Mandeep Singh">
+  <meta name="dcterms.date" content="2018-06-30">
+  <title>Compiling Custom ROMS</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/beige.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Compiling Custom ROMS</h1>
+  <p class="author">Mandeep Singh</p>
+  <p class="date">June 30, 2018</p>
+</section>
+
+<section><section id="android-roms" class="title-slide slide level1"><h1>Android ROMs</h1></section></section>
+<section><section id="stock-rom" class="title-slide slide level1"><h1>Stock ROM</h1></section><section id="pros" class="slide level2">
+<h2>Pros</h2>
+<ul>
+<li class="fragment">Warranty</li>
+<li class="fragment">You tell?</li>
+</ul>
+</section><section id="cons" class="slide level2">
+<h2>Cons</h2>
+<ul>
+<li class="fragment">Bloated</li>
+<li class="fragment">Slow Performance</li>
+<li class="fragment">Slow to 0 updates</li>
+<li class="fragment">Bugs</li>
+</ul>
+</section></section>
+<section><section id="custom-rom" class="title-slide slide level1"><h1>Custom ROM</h1></section><section id="pros-1" class="slide level2">
+<h2>Pros</h2>
+<ul>
+<li class="fragment">Highly Customizable</li>
+<li class="fragment">Control</li>
+<li class="fragment">Performance</li>
+<li class="fragment">Battery Life</li>
+<li class="fragment">Bleeding Edge</li>
+<li class="fragment">and a lot more Craziness!</li>
+</ul>
+</section><section id="cons-1" class="slide level2">
+<h2>Cons</h2>
+<ul>
+<li class="fragment">Warranty void</li>
+<li class="fragment">Security issues</li>
+<li class="fragment">Dangerous</li>
+</ul>
+<p>With Great <em>Power</em> comes Great <em>Responsibility</em></p>
+</section></section>
+<section><section id="how-to-install" class="title-slide slide level1"><h1>How to Install</h1></section><section id="things-you-need" class="slide level2">
+<h2>Things you need</h2>
+<ul>
+<li class="fragment">Unlocked Bootloader</li>
+<li class="fragment">Custom Recovery</li>
+<li class="fragment">ROM zip file</li>
+<li class="fragment">GApps</li>
+<li class="fragment">Demo?</li>
+</ul>
+</section></section>
+<section><section id="compiling-the-rom" class="title-slide slide level1"><h1>Compiling the ROM</h1></section><section id="lineage-os" class="slide level2">
+<h2>Lineage OS</h2>
+<p><img data-src="images/lineage.png" /></p>
+<p><a href="https://github.com/LineageOS/android" class="uri">https://github.com/LineageOS/android</a></p>
+</section><section id="requirements" class="slide level2">
+<h2>Requirements</h2>
+<ul>
+<li class="fragment">Minimum 8 GB RAM</li>
+<li class="fragment">100 GB Disk Space</li>
+<li class="fragment">A lot of <strong>patience</strong></li>
+</ul>
+</section><section id="steps-to-build-the-rom" class="slide level2">
+<h2>Steps to build the ROM</h2>
+<ul>
+<li class="fragment">Install dependencies</li>
+<li class="fragment">repo tool</li>
+<li class="fragment"><p>repo init</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1">$ <span class="ex">repo</span> init -u git://github.com/LineageOS/android.git -b cm-14.1</a></code></pre></div></li>
+<li class="fragment"><p>repo sync</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1">$ <span class="ex">repo</span> sync</a></code></pre></div></li>
+</ul>
+</section><section class="slide level2">
+
+<ul>
+<li class="fragment"><p>30-40 GB of Downloading…</p></li>
+<li class="fragment"><p>Environment setup</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1">$ <span class="bu">source</span> build/envsetup.sh</a></code></pre></div></li>
+<li class="fragment"><p>breakfast <code>&lt;device code&gt;</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1">$ <span class="ex">breakfast</span> ham</a></code></pre></div></li>
+<li class="fragment"><p>brunch <code>&lt;device code&gt;</code></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" data-line-number="1">$ <span class="ex">brunch</span> ham</a></code></pre></div></li>
+</ul>
+</section></section>
+<section><section id="errors" class="title-slide slide level1"><h1>Errors</h1></section><section class="slide level2">
+
+<figure>
+<img data-src="images/n1.jpg" alt="NucleaRom" style="width:40.0%" /><figcaption>NucleaRom</figcaption>
+</figure>
+</section><section class="slide level2">
+
+<figure>
+<img data-src="images/n2.jpg" alt="NucleaRom" style="width:40.0%" /><figcaption>NucleaRom</figcaption>
+</figure>
+</section><section class="slide level2">
+
+<figure>
+<img data-src="images/n3.jpg" alt="NucleaRom" style="width:40.0%" /><figcaption>NucleaRom</figcaption>
+</figure>
+</section><section class="slide level2">
+
+<figure>
+<img data-src="images/n4.jpg" alt="NucleaRom" style="width:40.0%" /><figcaption>NucleaRom</figcaption>
+</figure>
+</section><section class="slide level2">
+
+<figure>
+<img data-src="images/n5.jpg" alt="NucleaRom" style="width:40.0%" /><figcaption>NucleaRom</figcaption>
+</figure>
+</section></section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
