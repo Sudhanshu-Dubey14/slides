@@ -38,14 +38,14 @@
 
 ## How Doxygen?
 
-- Create sample configuration file using ``doxygen -g``
-- Modify parameters like:
+1. Create sample configuration file using ``doxygen -g``
+1. Modify parameters like:
 	- ``PROJECT_NAME``
 	- ``PROJECT_BRIEF``
 	- ``OUTPUT_DIRECTORY``
 	- ``INPUT``
 	- etc
-- [Document your code](http://doxygen.nl/manual/docblocks.html)
+3. [Document your code](http://doxygen.nl/manual/docblocks.html)
 
 ## So let's do it!!
 
