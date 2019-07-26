@@ -49,4 +49,4 @@
 
 ## So let's do it!!
 
-**Special Recommendation**: You can us a Markdown file as you main page by setting ``USE_MDFILE_AS_MAINPAGE`` to the md file.
+- **Special Recommendation**: You can us a Markdown file as your main page by setting ``USE_MDFILE_AS_MAINPAGE`` to the md file.
