@@ -55,10 +55,10 @@ body {
   word-wrap: break-word; }
 
 .reveal h1 {
-  font-size: 3.77em; }
+  font-size: 3em; }
 
 .reveal h2 {
-  font-size: 2.11em; }
+  font-size: 2em; }
 
 .reveal h3 {
   font-size: 1.55em; }
@@ -207,14 +207,14 @@ body {
  * LINKS
  *********************************************/
 .reveal a {
-  color: #51483D;
+  color: #982901;
   text-decoration: none;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
   transition: color .15s ease; }
 
 .reveal a:hover {
-  color: #8b7c69;
+  color: #f0ad4e;
   text-shadow: none;
   border: none; }
 
