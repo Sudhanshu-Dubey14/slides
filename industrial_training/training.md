@@ -1,4 +1,4 @@
-% My experience of Industrial Training 
+% My Experience of Industrial Training 
 % Sudhanshu Dubey
 % 3rd Aug 2019
 
@@ -56,4 +56,6 @@
 
 ## GD made me "different from the rest"
 
-### [Read all about my training](https://hacksd.wordpress.com/2019/06/05/day-1-of-summer-internship/)
+## Blogs
+
+- [Read all about my training](https://hacksd.wordpress.com/2019/06/05/day-1-of-summer-internship/)
