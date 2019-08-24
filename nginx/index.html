@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Sudhanshu Dubey">
+  <title>Nginx and Regex</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
+  <link rel="stylesheet" href="reveal.js/css/theme/moon.css"/>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Nginx and Regex</h1>
+  <p class="author">Sudhanshu Dubey</p>
+  <p class="date">24th August 2019</p>
+</section>
+
+<section id="what-is-nginx" class="slide level2">
+<h2>What is Nginx?</h2>
+<blockquote>
+<p>nginx [engine x] is an HTTP and reverse proxy server, a mail proxy server, and a generic TCP/UDP proxy server, originally written by <a href="http://sysoev.ru/en/">Igor Sysoev</a>.</p>
+</blockquote>
+<ul>
+<li class="fragment">The above is how Nginx <a href="https://nginx.org/en/">define themself</a>.</li>
+<li class="fragment">For us simple folks, its a webserver.</li>
+</ul>
+</section>
+<section id="nginx-vs-apache" class="slide level2">
+<h2>Nginx vs Apache</h2>
+<ul>
+<li class="fragment">From <a href="https://www.hostingadvice.com/how-to/nginx-vs-apache/">this site</a> we can get a nice and brief comparison of the two.</li>
+<li class="fragment">What we experience is that Nginx is smaller and faster.</li>
+<li class="fragment">But, compared to Apache, its a lot difficult to configure.</li>
+</ul>
+</section>
+<section id="what-is-regex" class="slide level2">
+<h2>What is Regex?</h2>
+<ul>
+<li class="fragment">Regular Expressions (Regex) are an excellent way to search for patterns in any text.</li>
+<li class="fragment">Its quite intimidating for beginners but is an extremely valuable tool once you get your hands on it.</li>
+<li class="fragment">You can learn regex from <a href="https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285?source=email-f233d69a16f5-1565139564660-digest.reader------0-49------------------b13881b2_1fc2_470c_af03_4868c26244c7-1">here</a>.</li>
+<li class="fragment">And then practice it <a href="https://regex101.com/">here</a>.</li>
+</ul>
+</section>
+<section id="nginx-regex" class="slide level2">
+<h2>Nginx + Regex</h2>
+<ul>
+<li class="fragment">The configuration of Nginx mostly depends (from my experience) on how you are checking the <a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#location">location</a>.</li>
+<li class="fragment">And location can be pattern matched using Regex.</li>
+</ul>
+</section>
+<section id="cgi-on-nginx" class="slide level2">
+<h2>CGI on Nginx</h2>
+<ul>
+<li class="fragment"><a href="https://www.nginx.com/resources/wiki/start/topics/examples/fcgiwrap/">FastCGI</a> is how you get Common Gateway Interface in Nginx.</li>
+<li class="fragment">In the above instructions, we are given a default configuration file.</li>
+<li class="fragment">To use CGI in Nginx, we need to somehow pass the address of the file to fcgiwrap.socket.</li>
+</ul>
+</section>
+<section id="problems-for-userdir" class="slide level2">
+<h2>Problems for Userdir</h2>
+<ul>
+<li class="fragment"><code>Userdir</code> means that each user has it’s own public_html directory.</li>
+<li class="fragment">The path becomes variable and that’s troublesome.</li>
+<li class="fragment">If correct path is not provided, the file will get downloaded.</li>
+</ul>
+</section>
+<section id="my-solution" class="slide level2">
+<h2>My solution</h2>
+<ol type="1">
+<li class="fragment">Use regex to get path</li>
+<li class="fragment">Do not use <code>root</code>.</li>
+<li class="fragment">Use fastcgi_param instead to pass the path of the file.</li>
+</ol>
+</section>
+<section id="thanks" class="slide level2">
+<h2>Thanks</h2>
+</section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
