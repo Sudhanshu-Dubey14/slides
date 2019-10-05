@@ -6,7 +6,7 @@
 # Sudo Su
 
 ****
-####sarvshaktiman, ekmatra bhagwan <!-- .element: class="fragment grow" -->
+sarvshaktiman, ekmatra bhagwan <!-- .element: class="fragment grow" -->
 ****
 
 - Offsite mentor : Satinderpal singh(lecturer cum programmer)
@@ -20,12 +20,12 @@
 
 <!-- .slide: data-transition="convex" -->
 
----
 <section data-background-color="#e0e6ee">
 ##project problem
 # Student Information System
 <!-- .slide: data-transition="convex" -->
----
+
+
 <section data-background-color="#e0e6ee">
 #Objectives
 * Automation of student admission/data collection <!-- .element: class="fragment" -->
@@ -36,7 +36,8 @@
 * Event calender<!-- .element: class="fragment" -->
 
 <!-- .slide: data-transition="convex" -->
----
+
+
 <section data-background-color="#e0e6ee">
 ##Let's move to the application
 ****
