@@ -7,4 +7,4 @@ pandoc -t revealjs -i --slide-level=2  --css=reveal.js/css/theme/serif.css -s tr
 
 ```
 
-See the HTML slides at https://sudhanshu-dubey14.github.io/slides/industrial_training/#/ 
+See the HTML slides at https://sudhanshu-dubey14.github.io/slides/training_viva/#/title-slide 
