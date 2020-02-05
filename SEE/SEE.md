@@ -4,8 +4,8 @@
 
 ## Guides
 
-1. *Dr. Hardeep Singh Rai* (HOD and Professor of Civil Engineering Department)
-1. *Satinderpal Singh* (Computer Programmer and Assistant Professor of Computer Centre)    
+1. **Dr. Hardeep Singh Rai** *(HOD and Professor of Civil Engineering Department)*
+1. **Satinderpal Singh** *(Computer Programmer and Assistant Professor of Computer Centre)*
 
 ## Current Scenario
 
