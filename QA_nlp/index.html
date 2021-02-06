@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Sudhanshu Dubey">
+  <title>Question Answering Systems</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/black.css" id="theme">
+  <link rel="stylesheet" href="reveal.js/css/theme/night.css"/>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Question Answering Systems</h1>
+  <p class="author">Sudhanshu Dubey</p>
+  <p class="date">8th Feb 2021</p>
+</section>
+
+<section>
+<section id="introduction-to-question-answering-systems" class="title-slide slide level1">
+<h1>Introduction to Question Answering Systems</h1>
+
+</section>
+<section id="what-are-qa-systems" class="slide level2">
+<h2>What are QA Systems?</h2>
+<ul>
+<li class="fragment">“Question Answering is a human-machine interaction to extract information from data using natural language queries.”</li>
+<li class="fragment">This simply means that it’s a “software” that can answer questions asked in human language.</li>
+<li class="fragment">If you ask a “software” “Where is CAIR located?” and it tells you “Banglore, India” then it’s a QA system.</li>
+</ul>
+</section>
+<section id="qa-system-vs-search-engines" class="slide level2">
+<h2>QA System vs Search Engines</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Google</th>
+<th>Ecosia</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="images/google.jpg" alt="Google QA" width="1400" height="400"/></td>
+<td><img src="images/ecosia.jpg" alt="Ecosia" width="1400" height="400"/></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="evolution-of-qa-systems" class="slide level2">
+<h2>Evolution of QA Systems</h2>
+<ul>
+<li class="fragment">The concept of QA can be traced back to the emergence of AI with the famous Turing Test.</li>
+<li class="fragment">Early works on QA mainly relied on manually-designed syntactic rules to answer simple answers due to constrained computing resources.</li>
+<li class="fragment">A major event in this field was IBM’s Watson winning the Jeopardy! quiz show in 2011.</li>
+<li class="fragment">With the recent developments in Deep Learning and computing resources, NLP and QA systems have gained pace.</li>
+</ul>
+</section></section>
+<section>
+<section id="broad-categories" class="title-slide slide level1">
+<h1>Broad Categories</h1>
+
+</section>
+<section id="based-on-domain-scope" class="slide level2">
+<h2>Based on Domain (Scope)</h2>
+<ul>
+<li class="fragment"><strong>Closed Domain</strong>: The system can answer questions from a specific field. Ex: <a href="https://en.wikipedia.org/wiki/Question_answering#History">BASEBALL and LUNAR</a></li>
+<li class="fragment"><strong>Open Domain</strong>: The system can answer questions from any general field. Ex: <a href="https://research.fb.com/downloads/drqa/">Facebook’s DrQA</a></li>
+</ul>
+</section>
+<section id="based-on-data-source" class="slide level2">
+<h2>Based on Data Source</h2>
+<ul>
+<li class="fragment"><strong>Structured Data</strong>: Highly organised data in the form of Knowledge Graphs. Ex: <a href="https://en.wikipedia.org/wiki/Google_Knowledge_Graph">Google Knowledge Graph</a> and <a href="https://github.com/yuzhiliu/graphqa">GraphQA</a></li>
+<li class="fragment"><strong>Semi-Structured Data</strong>: Data organised in the form of lists and tables. Ex: <a href="http://ciir.cs.umass.edu/pubfiles/ir-244.pdf">QuASM</a> and <a href="https://github.com/allenai/tableilp">TableILP</a></li>
+<li class="fragment"><strong>Unstructured Data</strong>: Unorganised data present as plain text usually in natural language. Ex: Facebook’s DrQA.</li>
+</ul>
+</section>
+<section id="based-on-question-types" class="slide level2">
+<h2>Based on Question Types</h2>
+<ul>
+<li class="fragment"><p><strong>Factual</strong>: Questions starting with Wh-interrogated word (what, where, when, etc).</p></li>
+<li class="fragment"><p><strong>List</strong>: Questions asking for examples.</p></li>
+<li class="fragment"><p><strong>Definition</strong>: Questions asking to define something.</p></li>
+<li class="fragment"><p><strong>Hypothetical</strong>: Situation based questions.</p></li>
+<li class="fragment"><p><strong>Confirmation</strong>: Yes/No type questions.</p></li>
+<li class="fragment"><p>Currently, most QA systems answer factual questions.</p></li>
+</ul>
+</section>
+<section id="based-on-answer-types" class="slide level2">
+<h2>Based on Answer Types</h2>
+<ul>
+<li class="fragment"><strong>Extractive</strong>: The answer is a span of text, word or entity which is extracted from relevant documents.</li>
+<li class="fragment"><strong>Generative</strong>: The answer is generated by the system itself.</li>
+</ul>
+</section>
+<section id="based-on-methodologies" class="slide level2">
+<h2>Based on Methodologies</h2>
+<ul>
+<li class="fragment"><strong>Knowledge Base based</strong>: The idea is to answer a natural language question by mapping it to a query over a structured database. The logical form of the question is thus either in the form of a query or can easily be converted into one. Ex: <a href="https://cs.stanford.edu/~pliang/papers/freebase-emnlp2013.pdf">WebQuestions</a></li>
+<li class="fragment"><strong>Information Retrieval based</strong>: The idea is to answer a user’s question by finding short text segments from the given collection of documents. Ex: <a href="https://ieeexplore.ieee.org/abstract/document/5764111">IR based QA</a></li>
+<li class="fragment"><strong>Natural Language Processing based</strong>: NLP based models aim to extract candidate answer strings from the context document and re-rank them by semantic matching. Ex: <a href="https://github.com/allenai/document-qa">DocumentQA</a></li>
+</ul>
+</section></section>
+<section>
+<section id="major-methodologies" class="title-slide slide level1">
+<h1>Major Methodologies</h1>
+
+</section>
+<section id="knowledge-base-based" class="slide level2">
+<h2>Knowledge Base based</h2>
+<ul>
+<li class="fragment"><p>A knowledge base (KB) is a technology used to store complex structured and unstructured information used by a computer system.</p></li>
+<li class="fragment"><p>Two common paradigms are used for knowledge-based QA:</p>
+<ol type="1">
+<li class="fragment"><em>Graph-Based</em>: This models the knowledge base as a graph, often with entities as nodes and relations or propositions as edges between nodes. A simple case is of RDF triples, like (CAIR, location, Bangalore) using which we can answer questions like “Where is CAIR located?” and “What is situated in Bangalore?”</li>
+<li class="fragment"><em>Semantic Parsing</em>: The second kind of knowledge-based QA uses a semantic parser to map the question to a structured program to produce an answer. For example “How many people work at CAIR?” can be parser to <code>count(employee_list("CAIR"))</code>.</li>
+</ol></li>
+</ul>
+</section>
+<section id="information-retrieval-based" class="slide level2">
+<h2>Information Retrieval based</h2>
+<ul>
+<li class="fragment">The goal of IR-based QA is to answer a user’s question by finding short text segments from the web or some other large collection of documents.</li>
+<li class="fragment">The dominant paradigm for IR-based QA is the retrieve and read model.</li>
+<li class="fragment">In the first stage of this 2-stage model we retrieve relevant passages from a text collection, usually using a search engine.</li>
+<li class="fragment">In the second stage, a neural reading comprehension algorithm passes over each passage and finds spans that are likely to answer the question.</li>
+</ul>
+</section>
+<section id="natural-language-processing-based" class="slide level2">
+<h2>Natural Language Processing Based</h2>
+<ul>
+<li class="fragment">NLP based QAs are an advancement of IR based QAs.</li>
+<li class="fragment">After the document retrieval, it ranks the paragraphs. Then the QA systems can locate candidate answers from top ranked paragraphs through the reading comprehension model. Finally, the final answer is selected.</li>
+<li class="fragment">One thing to note is that NLP based QA systems these days use advanced deep learning models along with NLP techniques for each phase which makes them more advanced as compared to other methodologies.</li>
+</ul>
+</section></section>
+<section>
+<section id="some-case-studies" class="title-slide slide level1">
+<h1>Some Case Studies</h1>
+
+</section>
+<section id="cdqa-suite" class="slide level2">
+<h2>cdQA-Suite</h2>
+<ul>
+<li class="fragment">It is an end-to-end, closed domain, NLP based QA system suite built on top of the HuggingFace <a href="https://github.com/huggingface/transformers">transformers</a> library in Python.</li>
+</ul>
+<p><img src="images/cdQA.png" alt="cd QA" width="800" height="300"/></p>
+<ul>
+<li class="fragment">The Reader is a deep learning model <a href="https://github.com/huggingface/pytorch-pretrained-BERT">BERT</a> pre-trained on SQuAD 1.1 dataset and can be further fine-tuned on a dataset having similar format.</li>
+</ul>
+</section>
+<section id="open-domain-qa-using-distilbert" class="slide level2">
+<h2><a href="https://programmerbackpack.com/bert-nlp-using-distilbert-to-build-a-question-answering-system/">Open-Domain QA using DistilBERT</a></h2>
+<ul>
+<li class="fragment">It is an open domain, NLP based small QA system that uses a pre-collected set of Wikipedia articles as it’s data source.</li>
+<li class="fragment">It first collects the articles and extracts texts from it passing it to spaCy’s NLP model to process and store as sentences.</li>
+<li class="fragment">Then it does the same processing on the question (stop word removal and lemmatisation) and stores it.</li>
+<li class="fragment">After that, it uses BM25 ranking algorithm to search and fetch the most relevant sentences (context) to the question from the prepared dataset.</li>
+<li class="fragment">Finally, it uses the DistilBERT (a lightweight version of BERT) to find the answer from the context.</li>
+</ul>
+</section>
+<section id="drqa" class="slide level2">
+<h2>DrQA</h2>
+<ul>
+<li class="fragment">It is an open-domain, NLP based QA system that uses the whole of Wikipedia to answer factoid questions.</li>
+<li class="fragment">It has two components:
+<ol type="1">
+<li class="fragment"><em>Document Retriever</em>: It uses bigram hashing and TF-IDF ranking algorithm to fetch relevant documents efficiently.</li>
+<li class="fragment"><em>Document Reader</em>: It is a multi-layer recurrent neural network machine comprehension model trained to do extractive question answering. It is primarily trained on SQuAD datatset.</li>
+</ol></li>
+</ul>
+<p><img src="images/drqa.png" alt="cd QA" width="600" height="250"/></p>
+</section></section>
+<section>
+<section id="challenges" class="title-slide slide level1">
+<h1>Challenges</h1>
+
+</section>
+<section id="related-to-nlp" class="slide level2">
+<h2>Related to NLP</h2>
+<ul>
+<li class="fragment"><p><strong>Lexical Gap</strong>: Questions in natural language can be expressed in multiples ways. The difference can be as simple as using synonyms like “Who is the founder of Linkin Park?” and “Who created Linkin Park?” to completely different questions having same context and answers like “Who is the current president of USA?” and “Who succeeded Donald Trump as USA’s president?”</p></li>
+<li class="fragment"><p><strong>Ambiguity</strong>: In English, a word can have multiple meanings and so it can lead to similar looking questions with entirely different meanings like “Where is Bank of Baroda ATM?” and “On which river’s bank is Baroda situated?”. These can be solved to some extent with word sense disambiguation and POS tagging.</p></li>
+</ul>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<ul>
+<li class="fragment"><p><strong>Multilinguism</strong>: Currently NLP is not as evolved for other languages as it is for English.</p></li>
+<li class="fragment"><p><strong>Question Types</strong>: With the current technologies, only factoid questions can be answered. Hypothetical, confirmation and inference type questions can be answered. Also generative answers can’t be generated as of now.</p></li>
+</ul>
+</section>
+<section id="related-to-deep-learning" class="slide level2">
+<h2>Related to Deep Learning</h2>
+<ul>
+<li class="fragment"><p><strong>Interpretability</strong>: It is well-known that the process of deep learning likes a black-box. This makes debugging and modification difficult.</p></li>
+<li class="fragment"><p><strong>Data Hungry</strong>: Deep learning models are data driven, the more the better. But it is costly and time consuming to build large datasets, even with annotation tools available.</p></li>
+<li class="fragment"><p><strong>Resource Hungry</strong>: Deep learning models need large resources, especially for training. This prevents the adoption of QA models on mobile devices.</p></li>
+</ul>
+</section></section>
+<section id="scope-for-further-work" class="title-slide slide level1">
+<h1>Scope for Further Work</h1>
+<ul>
+<li class="fragment"><p><strong>Complex Reasoning</strong>: With larger datasets, the QA systems need to be able to derive answers by combining multiple documents and using deductive reasoning on them.</p></li>
+<li class="fragment"><p><strong>Complexity Improvement</strong>: The deep learning models can be improved to perform better on lower hardware configurations.</p></li>
+<li class="fragment"><p><strong>Multiple Linguistic Support</strong>: Languages other than English can be enabled for asking questions resulting in a wider user base.</p></li>
+</ul>
+</section>
+
+<section id="thanks" class="title-slide slide level1">
+<h1>Thanks !!!</h1>
+
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^4//dist/reveal.js"></script>
+
+  // reveal.js plugins
+  <script src="https://unpkg.com/reveal.js@^4//plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
