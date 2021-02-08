@@ -1,6 +1,6 @@
 % Question Answering Systems 
 % Sudhanshu Dubey
-% 8th Feb 2021
+% 7th Feb 2021
 
 # Introduction to Question Answering Systems
 
@@ -65,7 +65,7 @@
 - Two common paradigms are used for knowledge-based QA:
 
 	1. *Graph-Based*: This  models the knowledge base as a graph, often with entities as nodes and relations or propositions as edges between nodes. A simple case is of RDF triples, like (CAIR, location, Bangalore) using which we can answer questions like "Where is CAIR located?" and "What is situated in Bangalore?"
-	1. *Semantic Parsing*: The second kind of knowledge-based QA uses a semantic parser to map the question to a structured program to produce an answer. For example "How many people work at CAIR?" can be parser to `count(employee_list("CAIR"))`.
+	1. *Semantic Parsing*: The second kind of knowledge-based QA uses a semantic parser to map the question to a structured program to produce an answer. For example "How many people work at CAIR?" can be parsed to `count(employee_list("CAIR"))`.
 
 ## Information Retrieval based
 
